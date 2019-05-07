@@ -4,11 +4,11 @@
 #include <math.h>
 #define _USE_MATH_DEFINES
 using namespace std;
-const float rho = 0.01;
-const float ten = 40;
-const float c = sqrt(ten/rho);
-const float c1 = c;
-const float ratio = c*c/(c1*c1);
+const float dx = 0.01;
+const float dt = 0.01;
+const float c = 1.0/2.0;
+const float c1 = dx/dt;
+const float ratio = 0.25;
 
 int main(){
     ofstream outfile;
@@ -28,7 +28,7 @@ int main(){
         outfile<< xi[i][1] <<" ";
     }
     outfile<<endl;
-    for(int i = 0; i < 299; i ++){
+    for(int i = 0; i < 599; i ++){
         for(int j = 1;j<100;j++){
             xi[j][2] = 2*xi[j][1] - xi[j][0] + ratio*(xi[j+1][1] + xi[j-1][1]-2*xi[j][1]);
         }

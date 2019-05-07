@@ -9,8 +9,8 @@ fig = plt.figure(figsize= (13,5))
 ax = fig.add_subplot(1,2,1, projection='3d')
 
 # Make data.
-X = np.array(range(301))*6/301
-Y = np.array(range(101))/101
+X = np.array(range(601))*6/600
+Y = np.array(range(101))/100
 X, Y = np.meshgrid(X, Y)
 Z = np.loadtxt('datos.txt').T
 
@@ -19,9 +19,6 @@ surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm,
                        linewidth=0, antialiased=False)
 
 # Customize the z axis.
-ax.set_zlim(-1.00, 1.00)
-ax.zaxis.set_major_locator(LinearLocator(10))
-ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
 plt.ylabel('Posicion [metros]')
 plt.xlabel('Tiempo [segundos]')
 
